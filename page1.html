@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>Szuhsuan's Personal Page</title>
+   <link href="https://cdn.jsdelivr.net/jquery.slick/1.3.15/slick.css" rel="stylesheet">
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+   <script>
+        $(document).ready( function () {
+
+          // Sliders
+
+          //// Slider Top
+         $('.js-items-slider-container .slider-for').slick({
+             slidesToShow: 1,
+             slidesToScroll: 1,
+             arrows: true,
+             fade: true,
+             asNavFor: '.js-items-slider-container .slider-nav'
+         });
+         $('.js-items-slider-container .slider-nav').slick({
+             slidesToShow: 5,
+             slidesToScroll: 1,
+             asNavFor: '.js-items-slider-container .slider-for',
+             dots: true,
+             centerMode: false,
+             focusOnSelect: true,
+             arrows: false,
+             accessibility: true,
+             onAfterChange: function (slide, index) {
+               console.log("slider-nav change");
+               console.log(this.$slides.get(index));
+               $('.current-slide').removeClass('current-slide');
+               $(this.$slides.get(index)).addClass('current-slide');
+             },
+             onInit: function (slick) {
+               $(slick.$slides.get(0)).addClass('current-slide');
+             }
+         });
+       });
+   </script>
+   <style>
+    *{
+     /*   border: solid 1px black; */
+     /*   border: 0; */
+       margin: 0;
+      padding: 0;
+       position: relative;
+     /*   background-color: #F297A6; */
+     }
+     .top{
+       display: block;
+     /*   border: solid 1px #F297A6; */
+       width: 100%;
+       height: 800px;
+       background-image: url("https://i.imgur.com/29nFB81.png");
+       background-position: center;
+     }
+     .center {
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       padding-top: 140px;
+     /*   width: 50%; */
+     }
+     .middle{
+       position: relative;
+       display: block;
+       background-color: #F297A6;
+       width: 100%;
+       height: 2000px;
+     }
+     .bottom{
+       width: 100%;
+       height: 80px;
+       background-image: url("https://i.imgur.com/29nFB81.png");
+       background-position: center;
+       text-align: center;
+     }
+     .BottomWord{
+       padding-top: 35px;
+     }
+     .navbar{
+       background-color: #46ABB3;
+       font-size: 0;
+     /*   overflow: hidden; */
+     /*   display: block; */
+     /*   border: solid 1px red; */
+       width: 100%;
+       height: 100px;
+     } 
+     .barimg{
+     /*   display: block; */
+       width: 75%;
+       height: 100%;
+       padding-left: 45px;
+     }
+     /*.div{
+       display: block;
+     }*/
+     .line{
+        margin-top: 11px;
+     /*   margin-bottom: 5px */
+     /*   border: solid 2px blue; */
+       display: inline-block;
+     /*   padding: 10px; */
+     /*   text-align: center; */
+       width: 33%;
+       height: 80%;
+     }
+     .part1{
+     /*   border: solid 1px blue; */
+       position: relative;
+       display: block;
+       margin-top: 100px;
+     }
+     .myphoto{
+     /*   border-radius: 50%; */
+       display: block;
+     /*   position: absolute; */
+     /*   right: 53%;
+       top: 70px; */
+     /*   margin-left: 20%; */
+     /*   margin-left: auto; */
+     /*   margin-top: 40px; */
+       width: 100%;
+       height: 100%;
+       opacity:0.85;
+       border-radius: 5px;
+     /* 	box-shadow: 0 0 30px #4F4C9B; */
+     /*   border: solid 3px #4F4C9B; */
+     }
+     /*.bar{
+       display: inline-block;
+
+     }*/
+     .title{
+       position: relative;
+       color: #FFF43C;
+       text-align: center;
+     }
+     .SelfIntroduction{
+       vertical-align: top;
+       display: inline-block;
+       font-family: 'Noto Sans TC', sans-serif;
+       font-weight: 800;
+       line-height: 2;
+     /*   position: absolute;
+       left: 53%;
+       top: 90px; */
+       margin-left: 7%;
+       margin-top: 25px;
+     /*   margin-right: 10%; */
+       color: #4F4C9B;
+     } 
+     .bar{
+       padding-top: 35px;
+     }
+     .part2{
+       display: block;
+       position: relative;
+       margin-top: 100px;
+     }
+     .part3{
+       display: block;
+       position: relative;
+       margin-top: 100px;
+     }
+     .temp{
+       position: relative;
+       margin-top: 40px;
+     /*   margin-left: 10%;
+       margin-right: 10%; */
+     /*   box-shadow: 0 0 30px #4F4C9B; */
+     }
+     .container:hover .overlay {
+       opacity: 1;
+     }
+     .text {
+       color: white;
+       font-size: 20px;
+       position: absolute;
+       top: 50%;
+       left: 30%;
+       transform: translate(-20%, -20%);
+       -ms-transform: translate(-50%, -50%);
+     }
+     .overlay {
+       position: absolute;
+       top: 0;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       height: 100%;
+       width: 100%;
+       opacity: 0;
+       transition: .5s ease;
+       background-color: #4F4C9B;
+       border-radius: 5px;
+     }
+     .container {
+       position: relative;
+       display: inline-block;
+       width: 250px;
+       height: 250px;
+       margin-left: 20%;
+     /*   width: 50%; */
+     }
+     .items-slider-container {
+       margin: 20px auto;
+       max-width: 65%;
+     /*   height: 80%; */
+
+     }
+     /* line 19, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for {
+     /*   background-color: #fff; */
+       margin-bottom: 0;
+     }
+     /* line 23, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for img {
+       width: 100%;
+       height: 400px;
+     }
+     /* line 27, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container {
+       padding-left: 15px;
+       position: absolute;
+     }
+     /* line 37, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.left-top {
+       left: 0;
+       top: 0;
+     }
+     /* line 41, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     /* .items-slider-container .slider-for .item-informations-container.left-top .item-slide-title,
+     .items-slider-container .slider-for .item-informations-container.left-top .item-slide-info-1,
+     .items-slider-container .slider-for .item-informations-container.left-top .item-slide-info-2 {
+       text-align: left;
+     } */
+     /* line 48, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.center-top {
+       position: absolute;
+       left: 50%;
+       -moz-transform: translate(-50%, 0);
+       -ms-transform: translate(-50%, 0);
+       -webkit-transform: translate(-50%, 0);
+       transform: translate(-50%, 0);
+       top: 0;
+     }
+     /* line 53, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.right-top {
+       top: 0;
+       right: 0;
+     }
+     /* line 57, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.right-top .item-slide-title,
+     .items-slider-container .slider-for .item-informations-container.right-top .item-slide-info-1,
+     .items-slider-container .slider-for .item-informations-container.right-top .item-slide-info-2 {
+       text-align: right;
+     }
+     /* line 65, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.left-center {
+       position: absolute;
+       top: 50%;
+       -moz-transform: translate(0, -50%);
+       -ms-transform: translate(0, -50%);
+       -webkit-transform: translate(0, -50%);
+       transform: translate(0, -50%);
+       left: 0;
+     }
+     /* line 69, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.left-center .item-slide-title,
+     .items-slider-container .slider-for .item-informations-container.left-center .item-slide-info-1,
+     .items-slider-container .slider-for .item-informations-container.left-center .item-slide-info-2 {
+       text-align: left;
+     }
+     /* line 77, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.center-center {
+       position: absolute;
+       left: 50%;
+       top: 50%;
+       -moz-transform: translate(-50%, -50%);
+       -ms-transform: translate(-50%, -50%);
+       -webkit-transform: translate(-50%, -50%);
+       transform: translate(-50%, -50%);
+     }
+     /* line 81, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.right-center {
+       position: absolute;
+       top: 50%;
+       -moz-transform: translate(0, -50%);
+       -ms-transform: translate(0, -50%);
+       -webkit-transform: translate(0, -50%);
+       transform: translate(0, -50%);
+       right: 0;
+     }
+     /* line 85, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.right-center .item-slide-title,
+     .items-slider-container .slider-for .item-informations-container.right-center .item-slide-info-1,
+     .items-slider-container .slider-for .item-informations-container.right-center .item-slide-info-2 {
+       text-align: right;
+     }
+     /* line 93, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.left-bottom {
+       bottom: 0;
+       left: 0;
+     }
+     /* line 97, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.left-bottom .item-slide-title,
+     .items-slider-container .slider-for .item-informations-container.left-bottom .item-slide-info-1,
+     .items-slider-container .slider-for .item-informations-container.left-bottom .item-slide-info-2 {
+       text-align: left;
+     }
+     /* line 104, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.center-bottom {
+       position: absolute;
+       left: 50%;
+       -moz-transform: translate(-50%, 0);
+       -ms-transform: translate(-50%, 0);
+       -webkit-transform: translate(-50%, 0);
+       transform: translate(-50%, 0);
+       bottom: 0;
+     }
+     /* line 109, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.right-bottom {
+       bottom: 0;
+       right: 0;
+     }
+     /* line 113, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container.right-bottom .item-slide-title,
+     .items-slider-container .slider-for .item-informations-container.right-bottom .item-slide-info-1,
+     .items-slider-container .slider-for .item-informations-container.right-bottom .item-slide-info-2 {
+       text-align: right;
+     }
+     /* line 121, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container .item-slide-title,
+     .items-slider-container .slider-for .item-informations-container .item-slide-info-1 {
+       line-height: 1em;
+     }
+     /* line 126, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-for .item-informations-container .item-slide-title {
+       font-size: 25px;
+     /*   font-size: 4rem; */
+       color: #fff;
+       text-transform: uppercase;
+     }
+     /* line 156, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-nav {
+       background-color: #FFCFEA;
+       margin-bottom: 30px;
+     }
+     /* line 160, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-nav .slick-slide {
+       position: relative;
+       padding: 7px;
+     }
+     /* line 164, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-nav .slick-slide img {
+     /*   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); */
+       opacity: 0.5;
+       width: 100%;
+       margin: 0 auto;
+       height: 100px;
+     }
+     /* line 170, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-nav .slick-slide:hover {
+       cursor: pointer;
+     }
+     /* line 174, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-nav .slick-slide.current-slide {
+       background-color: #FFFACD;
+     }
+     /* line 177, sass/portlets/items-slider/scss/modules/_items-slider.scss */
+     .items-slider-container .slider-nav .slick-slide.current-slide img {
+     /*   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false); */
+       opacity: 1;
+     /*   border: solid 10px #FFF43C; */
+     }
+     .slick-dots li button:before
+     {
+         color: white;
+     }
+     .slick-dots li.slick-active button:before {
+         color: #FFF43C;
+     }
+
+   </style>
+ </head>
+ <body>
+  <div class="top">
+   <img src="https://i.imgur.com/yrJin90.png" width="1000" height="500" class="center">
+ </div>
+ <div class="middle">
+   <div class="bar">
+     <div class="navbar">
+       <div class="line" id="line1">
+         <a href="">
+           <img src="https://i.imgur.com/muymrU0.png" class="barimg">
+         </a>
+       </div>
+       <div class="line" id="line2">
+         <a href="">
+           <img src="https://i.imgur.com/muymrU0.png" class="barimg">
+         </a>
+       </div>
+       <div class="line" id="line3">
+         <a href="">
+           <img src="https://i.imgur.com/muymrU0.png" class="barimg">
+         </a>
+       </div>
+     </div>
+   </div>
+   <div class="part1">
+     <h1 class="title">自我介紹</h1>
+     <div class="temp">
+       <div class="container">
+         <img src="https://i.imgur.com/LGOIqEo.jpg" class="myphoto">
+         <div class="overlay">
+           <div class="text">Nice To Meet You :)</div>
+         </div>
+       </div>
+       <p class="SelfIntroduction">Hello~<br>我是資工四甲的<b>陳思璇</b>!<br>興趣是手作東西<br><br>為了版面漂亮<br>補字補字補字補字補</p>
+     </div>
+   </div>
+   <div class="part2">
+     <h1 class="title">貓咪</h1>
+     <div class="items-slider-container js-items-slider-container">
+         <div class="slider slider-for">
+             <div>
+                 <img src="https://i.imgur.com/J5wtJZG.jpg" alt="">
+                 <div class="item-informations-container left-top">
+                     <div class="item-slide-title">Image 1</div>
+                 </div>
+             </div>
+
+             <div>
+                 <img src="https://i.imgur.com/9pb12yH.jpg" alt="">
+                 <div class="item-informations-container left-center">
+                     <div class="item-slide-title">Image 2</div>
+                     <div class="item-slide-info-1"></div>
+                     <div class="item-slide-info-2"></div>
+                 </div>
+             </div>
+
+             <div>
+                 <img src="https://i.imgur.com/PWxtSVt.jpg" alt="">
+                 <div class="item-informations-container left-bottom">
+                     <div class="item-slide-title">Image 3</div>
+                     <div class="item-slide-info-1"></div>
+                     <div class="item-slide-info-2"></div>
+                 </div>
+             </div>
+
+             <div>
+                 <img src="https://i.imgur.com/Wakv2y6.jpg" alt="">
+                 <div class="item-informations-container center-top">
+                     <div class="item-slide-title">Image 4</div>
+                     <div class="item-slide-info-1"></div>
+                     <div class="item-slide-info-2"></div>
+                 </div>
+             </div>
+
+             <div>
+                 <img src="https://i.imgur.com/4rctbTB.jpg" alt="">
+                 <div class="item-informations-container center-top">
+                     <div class="item-slide-title">Image 5</div>
+                     <div class="item-slide-info-1"></div>
+                     <div class="item-slide-info-2"></div>
+                 </div>
+             </div>
+
+             <div>
+                 <img src="https://i.imgur.com/KPVuUs1.jpg" alt="">
+                 <div class="item-informations-container center-top">
+                     <div class="item-slide-title">Image 6</div>
+                     <div class="item-slide-info-1"></div>
+                     <div class="item-slide-info-2"></div>
+                 </div>
+             </div>
+
+           <div>
+                 <img src="https://i.imgur.com/JPo3QhX.jpg" alt="">
+                 <div class="item-informations-container center-top">
+                     <div class="item-slide-title">Image 7</div>
+                     <div class="item-slide-info-1"></div>
+                     <div class="item-slide-info-2"></div>
+                 </div>
+             </div>
+
+           <div>
+                 <img src="https://i.imgur.com/h6XKviw.jpg" alt="">
+                 <div class="item-informations-container center-top">
+                     <div class="item-slide-title">Image 8</div>
+                     <div class="item-slide-info-1"></div>
+                     <div class="item-slide-info-2"></div>
+                 </div>
+             </div>
+
+         </div>
+         <div class="slider slider-nav">
+             <div><img src="https://i.imgur.com/J5wtJZG.jpg" alt=""></div>
+             <div><img src="https://i.imgur.com/9pb12yH.jpg" alt=""></div>
+             <div><img src="https://i.imgur.com/PWxtSVt.jpg" alt=""></div>
+             <div><img src="https://i.imgur.com/Wakv2y6.jpg" alt=""></div>
+             <div><img src="https://i.imgur.com/4rctbTB.jpg" alt=""></div>
+             <div><img src="https://i.imgur.com/KPVuUs1.jpg" alt=""></div>
+             <div><img src="https://i.imgur.com/JPo3QhX.jpg" alt=""></div>
+             <div><img src="https://i.imgur.com/h6XKviw.jpg" alt=""></div>
+
+         </div>
+     </div>
+   </div>
+   <div class="part3">
+     <h1 class="title">興趣</h1>
+   </div>
+ </div>
+ <div class="bottom">
+     <p class="BottomWord">© 2021 Szuhsuan's Personal Page.</p>
+ </div>
+
+  </body>
+</html>
